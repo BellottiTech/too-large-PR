@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 
+import random
+import json
 
 app = Flask(
  __name__,
@@ -9,7 +11,14 @@ app = Flask(
 
 @app.route("/")
 def index():
-    return render_template('index.html')
+    item = []
+    key = 0
+    with open("data.json") as f:
+        data = json.loads(f.read())
+        key = random.randrange(0, len(data["todo"])+1, 1)
+        item = data["todo"][key]
+
+    return render_template('index.html',item=item, key=key)
 
 @app.route("/submit", methods=['POST'])
 def update():
