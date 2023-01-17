@@ -37,3 +37,4 @@ def update():
     
         with open("data.json", "w") as f:
             f.write(json.dumps(data))
+    return redirect('/', 302)
