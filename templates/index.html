@@ -93,6 +93,16 @@
             </div>
             </div>
           </div>
+          <div class="row">
+            <form action="/submit" method="POST">
+                <h4>Name:</h4>
+                <input name="key" type="hidden" value="{{key}}"/>
+                <input name="name" id="name" type="text"><br><br>
+            <h4>Description:</h4>
+            <textarea name="description" id="description"></textarea><br><br>
+                <input type="submit"/>
+            </form>
+          </div>
     </body>
     <script src="static/js/load_data.js"></script>
     <script>
